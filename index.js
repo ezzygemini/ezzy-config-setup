@@ -118,11 +118,11 @@ const trueTypeOf = anyValue => Object.prototype.toString.call(anyValue)
  *
  * @returns {*}
  */
-module.exports = () => {
+module.exports = (...allArgs) => {
 
-  const elem0type = trueTypeOf(arguments[0]);
-  const elem1type = trueTypeOf(arguments[1]);
-  let args = arguments[0];
+  const elem0type = trueTypeOf(allArgs[0]);
+  const elem1type = trueTypeOf(allArgs[1]);
+  let args = allArgs[0];
   let configIx = -1;
   let i = 1;
   let ret = true;
@@ -136,11 +136,11 @@ module.exports = () => {
   // allow default configuration to be passed
   // in the first 2 arguments
   if (elem0type === 'object') {
-    args = arguments[1];
+    args = allArgs[1];
     configIx = 0;
     i = 2;
   } else if (elem1type === 'object') {
-    args = arguments[0];
+    args = allArgs[0];
     configIx = 1;
     i = 2;
   }
@@ -148,21 +148,21 @@ module.exports = () => {
   /**
    * clone the original configuration
    */
-  origConfig = configIx > -1 ? extend({}, arguments[configIx]) : {};
+  origConfig = configIx > -1 ? extend({}, allArgs[configIx]) : {};
 
-  for (; i < arguments.length; i++) {
+  for (; i < allArgs.length; i++) {
 
     if (
       args.length === 1 &&
-      arguments[i] === 'this' &&
-      trueTypeOf(arguments[i]) === 'object'
+      allArgs[i] === 'this' &&
+      trueTypeOf(allArgs[i]) === 'object'
     ) {
 
       return extend(origConfig, args);
 
     } else if (
-      trueTypeOf(arguments[i]) === 'array' &&
-      arguments[i].length === args.length
+      trueTypeOf(allArgs[i]) === 'array' &&
+      allArgs[i].length === args.length
     ) {
 
       ret = true;
@@ -170,7 +170,7 @@ module.exports = () => {
 
       for (s = 0; s < args.length; s++) {
 
-        value = arguments[i][s].split(':');
+        value = allArgs[i][s].split(':');
         name = value[0];
         type = value[1] || '*';
 
