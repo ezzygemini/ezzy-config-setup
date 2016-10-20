@@ -1,7 +1,7 @@
 {
   "name": "config-setup",
   "description": "A complex function configuration",
-  "version": "0.0.1",
+  "version": "0.0.15",
   "repository": {
     "type": "git",
     "url": "git@github.com:ezzygemini/config-setup.git"
