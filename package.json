@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git@github.com:ezzygemini/config-setup.git"
   },
-  "license": "MIT License",
+  "license": "MIT",
   "dependencies": {
     "extend": "^3.0.0"
   }
