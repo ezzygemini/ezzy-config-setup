@@ -1,5 +1,6 @@
 # configSetup
 [![Build Status](https://travis-ci.org/ezzygemini/config-setup.svg?branch=master)](https://travis-ci.org/ezzygemini/config-setup)
+[![Coverage Status](https://coveralls.io/repos/github/ezzygemini/config-setup/badge.svg?branch=master)](https://coveralls.io/github/ezzygemini/config-setup?branch=master)
 
 Changes a number of arguments into a readable configuration object.
 The arguments can have different organization, position, type, etc, which
