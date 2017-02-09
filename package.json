@@ -6,8 +6,15 @@
     "type": "git",
     "url": "git@github.com:ezzygemini/config-setup.git"
   },
+  "scripts": {
+    "test": "node node_modules/testing"
+  },
   "license": "MIT",
   "dependencies": {
+    "true-typeof": "ezzygemini/true-typeof",
     "extend": "^3.0.0"
+  },
+  "devDependencies": {
+    "testing": "ezzygemini/testing"
   }
 }
