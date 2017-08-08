@@ -11,10 +11,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "true-typeof": "ezzygemini/true-typeof",
-    "extend": "^3.0.0"
+    "extend": "^3.0.0",
+    "true-typeof": "github:ezzygemini/true-typeof"
   },
   "devDependencies": {
-    "testing": "ezzygemini/testing"
+    "testing": "github:ezzygemini/testing"
   }
 }

@@ -5,7 +5,7 @@ describe('configSetup', () => {
 
   class MyClass {
 
-    constructor() {
+    constructor(...args) {
       /**
        * @type {Object}
        * @prop {boolean} booleanProp
@@ -19,7 +19,7 @@ describe('configSetup', () => {
           objectProp: {a: null, b: null}
         },
 
-        arguments,
+        args,
 
         ['this:object'],
 
@@ -35,41 +35,44 @@ describe('configSetup', () => {
         ['arrayProp:array', 'objectProp:object', 'booleanProp:boolean']
       );
 
+      this.config2 = configSetup(args, {
+        test: null
+      }, ['this']);
+
+      this.config3 = configSetup({
+        test: null
+      }, args, ['this:object']);
+
     }
   }
 
   it('Should define the configuration object properly', () => {
     const myClass1 = new MyClass(false);
 
-    expect(myClass1.config.booleanProp)
-      .toBe(false);
-    expect(myClass1.config.arrayProp)
-      .toEqual([1, 2, 3]);
+    expect(myClass1.config.booleanProp).toBe(false);
+    expect(myClass1.config.arrayProp).toEqual([1, 2, 3]);
 
     const myClass2 = new MyClass([0]);
 
-    expect(myClass2.config.booleanProp)
-      .toBe(true);
-    expect(myClass2.config.arrayProp)
-      .toEqual([0]);
+    expect(myClass2.config.booleanProp).toBe(true);
+    expect(myClass2.config.arrayProp).toEqual([0]);
 
     const myClass3 = new MyClass({c: null}, false, [0]);
 
-    expect(myClass3.config.booleanProp)
-      .toBe(false);
-    expect(myClass3.config.arrayProp)
-      .toEqual([0]);
-    expect(myClass3.config.objectProp)
-      .toEqual({c: null});
+    expect(myClass3.config.booleanProp).toBe(false);
+    expect(myClass3.config.arrayProp).toEqual([0]);
+    expect(myClass3.config.objectProp).toEqual({c: null});
 
     const myClass4 = new MyClass([0], {c: null}, false);
 
-    expect(myClass4.config.booleanProp)
-      .toBe(false);
-    expect(myClass4.config.arrayProp)
-      .toEqual([0]);
-    expect(myClass4.config.objectProp)
-      .toEqual({c: null});
+    expect(myClass4.config.booleanProp).toBe(false);
+    expect(myClass4.config.arrayProp).toEqual([0]);
+    expect(myClass4.config.objectProp).toEqual({c: null});
+
+    const myClass5 = new MyClass({test: 1});
+
+    expect(myClass5.config2.test).toBe(1);
+    expect(myClass5.config3.test).toBe(1);
 
   });
 
