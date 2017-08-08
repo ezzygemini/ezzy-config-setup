@@ -43,6 +43,8 @@ describe('configSetup', () => {
         test: null
       }, args, ['this:object']);
 
+      this.config4 = configSetup(args, ['this:object']);
+
     }
   }
 
@@ -73,6 +75,7 @@ describe('configSetup', () => {
 
     expect(myClass5.config2.test).toBe(1);
     expect(myClass5.config3.test).toBe(1);
+    expect(myClass5.config4.test).toBe(1);
 
   });
 
