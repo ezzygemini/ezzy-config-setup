@@ -1,5 +1,5 @@
 {
-  "name": "config-setup",
+  "name": "ezzy-config-setup",
   "description": "A complex function configuration",
   "version": "0.1.0",
   "repository": {
@@ -7,14 +7,14 @@
     "url": "git@github.com:ezzygemini/config-setup.git"
   },
   "scripts": {
-    "test": "node node_modules/testing"
+    "test": "node node_modules/ezzy-testing"
   },
   "license": "MIT",
   "dependencies": {
     "extend": "^3.0.0",
-    "true-typeof": "github:ezzygemini/true-typeof"
+    "ezzy-typeof": "0.0.1"
   },
   "devDependencies": {
-    "testing": "github:ezzygemini/testing"
+    "ezzy-testing": "^0.1.0"
   }
 }

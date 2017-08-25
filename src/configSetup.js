@@ -19,7 +19,7 @@
  * SOFTWARE.
  */
 const extend = require('extend');
-const trueTypeOf = require('true-typeof');
+const trueTypeOf = require('ezzy-typeof');
 
 /**
  * Changes a number of arguments into a readable configuration object.
