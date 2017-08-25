@@ -1,4 +1,4 @@
-# configSetup
+# ezzy-config-setup
 [![Build Status](https://travis-ci.org/ezzygemini/ezzy-config-setup.svg?branch=master)](https://travis-ci.org/ezzygemini/ezzy-config-setup)
 [![Coverage Status](https://coveralls.io/repos/github/ezzygemini/ezzy-config-setup/badge.svg?branch=master)](https://coveralls.io/github/ezzygemini/ezzy-config-setup?branch=master)
 
