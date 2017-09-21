@@ -21,10 +21,9 @@
   "license": "MIT",
   "dependencies": {
     "extend": "^3.0.0",
-    "ezzy-testing": "^0.1.17",
     "ezzy-typeof": "0.0.1"
   },
   "devDependencies": {
-    "ezzy-testing": "^0.1.16"
+    "ezzy-testing": "^0.1.18"
   }
 }
