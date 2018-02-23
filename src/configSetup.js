@@ -38,7 +38,7 @@ const trueTypeOf = require('ezzy-typeof');
  *    defaultConfig,
  *    arguments,
  *    ["method:string"],
- *    ["config:object", "callback"]
+ *    ["config:object", "callback:function|undefined"]
  *  );
  *
  * @example
@@ -120,7 +120,8 @@ module.exports = (...allArgs) => {
   let config;
   let s;
   let name;
-  let type;
+  let types;
+  let optional;
   let value;
   let origConfig;
 
@@ -162,12 +163,16 @@ module.exports = (...allArgs) => {
       for (s = 0; s < args.length; s++) {
 
         value = allArgs[i][s].split(':');
-        name = value[0];
-        type = value[1] || '*';
+        name = value[0].trim();
+        types = (value[1] || '').replace(/\s/g, '').split(/[,|]/);
+        optional = /\?/.test(value[1]) ||
+          types.includes('*') || types.includes('undefined');
 
         if (name === 'this' && trueTypeOf(args[s]) === 'object') {
           extend(config, args[s]);
-        } else if (type === '*' || trueTypeOf(args[s]) === type) {
+        } else if (optional) {
+          config[name] = args[s] === undefined ? config[name] : args[s];
+        } else if (types.includes(trueTypeOf(args[s]))) {
           config[name] = args[s];
         } else {
           ret = false;

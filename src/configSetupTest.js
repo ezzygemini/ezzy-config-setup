@@ -79,4 +79,18 @@ describe('configSetup', () => {
 
   });
 
+  it('should define an optional configuration properly', () => {
+    const getConfig = (...args) => configSetup({
+        arrayProp: [],
+        optionalBoolean: false
+      }, args,
+      ['arrayProp : array?', 'optionalBoolean : boolean | undefined']);
+    let config = getConfig(undefined, true);
+    expect(config.arrayProp).toEqual([]);
+    expect(config.optionalBoolean).toBe(true);
+    config = getConfig([1,2,3], undefined);
+    expect(config.arrayProp).toEqual([1,2,3]);
+    expect(config.optionalBoolean).toBe(false);
+  });
+
 });
