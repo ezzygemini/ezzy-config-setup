@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "extend": "^3.0.2",
-    "ezzy-typeof": "0.1.16"
+    "ezzy-typeof": "3.0.3"
   },
   "devDependencies": {
     "ezzy-testing": "^0.1.26"
